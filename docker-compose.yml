@@ -1,0 +1,16 @@
+version: "3"
+services:
+  postgres:
+    image: eeacms/postgres
+    ports:
+    - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DBNAME: challenge_test challenge_dev challenge_prod
+      POSTGRES_DBUSER: challenge
+      POSTGRES_DBPASS: challenge
+    volumes:
+    - postgres-data:/var/lib/postgresql/data
+volumes:
+  postgres-data:

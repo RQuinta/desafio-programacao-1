@@ -1,7 +1,43 @@
 require 'bundler/setup'
+require 'rake'
+require 'rspec/core'
+require 'rspec/core/rake_task'
 
 require_relative 'config/application'
 load 'tasks/otr-activerecord.rake'
+
+OTR::ActiveRecord.db_dir = 'db'
+OTR::ActiveRecord.migrations_paths = ['db/migrate']
+OTR::ActiveRecord.fixtures_path = 'test/fixtures'
+OTR::ActiveRecord.seed_file = 'seeds.rb'
+
+namespace :db do
+  task :environment do
+    require 'json'
+    require 'bundler'
+    Bundler.require(:default, ENV['OTR_ENV'] ? ENV['OTR_ENV'].to_sym : :development)
+    OTR::ActiveRecord.configure_from_file! './config/database.yml'
+  end
+end
+
+begin
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
+end
+
+
+RSpec::Core::RakeTask.new(:spec) do |spec|
+  # do not run integration tests, doesn't work on TravisCI
+  spec.pattern = FileList['spec/app/*_spec.rb']
+end
+
+task :environment do
+  ENV["RACK_ENV"] ||= 'development'
+  require File.expand_path("../config/environment", __FILE__)
+end
 
 desc 'Default: run specs.'
 task :default do
@@ -12,11 +48,6 @@ task :default do
   end
 
   Rake::Task['spec'].invoke
-end
-
-namespace :db do
-  task :environment do
-  end
 end
 
 namespace :grape do

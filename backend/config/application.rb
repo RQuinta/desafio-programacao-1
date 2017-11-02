@@ -22,6 +22,10 @@ load File.expand_path('../database.rb', __FILE__)
 # Models
 require_relative '../app/models/application_record'
 
+Dir[File.expand_path('../../app/models/concerns/*.rb', __FILE__)].each do |concern|
+  require_relative concern
+end
+
 Dir[File.expand_path('../../app/models/*.rb', __FILE__)].each do |model|
   require_relative model
 end
