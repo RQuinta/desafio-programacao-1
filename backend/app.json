@@ -1,0 +1,10 @@
+{
+  "name": "Challenge",
+  "description": "Challenge application",
+  "repository": "https://github.com/RQuinta/desafio-programacao-1",
+  "keywords": ["grape_oauth2", "grape", "rest", "api", "OAuth"],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "addons": ["heroku-postgresql"]
+}
