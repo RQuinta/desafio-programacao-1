@@ -1,0 +1,29 @@
+<div>
+  <div>
+    <input type="file" file-model="myFile"/>
+    <button ng-click="uploadFile()">upload me</button>
+  </div>
+  <div ng-if="sells.length">
+    <table>
+      <tr>
+        <th>item</th>
+        <th>Nome do comerciante</th>
+        <th>Endereço do vendedor</th>
+        <th>Nome do comprador</th>
+        <th>Preço</td>
+        <td>Quantidade</td>
+        <th>Total</td>
+      </tr>
+      <tr ng-repeat="sell in sells">
+        <td>{{ sell.item.description }}</td>
+        <td>{{ sell.merchant.name }}</td>
+        <td>{{ sell.merchant.address }}</td>
+        <td>{{ sell.purchaser.name }}</td>
+        <td>{{ sell.item.price }}</td>
+        <td>{{ sell.count }}</td>
+        <td>{{ sell.item.price * sell.count }}</td>
+      </tr>
+    </table>
+    <span>Total: {{ sellsSum() }}</span>
+  </div>
+</div>
