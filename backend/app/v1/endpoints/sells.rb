@@ -15,6 +15,7 @@ module Challenge
             temp_file = file[:tempfile]
             file_parser = SellsFileParser.new(temp_file)
             sells = file_parser.parse
+            Sell.mass_edit sells
             present(sells, with: Challenge::V1::Entities::Sell)
           end
 
