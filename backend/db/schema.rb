@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 8) do
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at", null: false
+    t.datetime "deleted_at"
   end
 
   create_table "merchants", id: :serial, force: :cascade do |t|
@@ -67,14 +67,14 @@ ActiveRecord::Schema.define(version: 8) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at", null: false
+    t.datetime "deleted_at"
   end
 
   create_table "purchasers", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at", null: false
+    t.datetime "deleted_at"
   end
 
   create_table "sells", id: :serial, force: :cascade do |t|
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 8) do
     t.string "uuid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at", null: false
+    t.datetime "deleted_at"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 8) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at", null: false
+    t.datetime "deleted_at"
   end
 
 end

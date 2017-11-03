@@ -5,7 +5,7 @@ class CreatePurchasers < ActiveRecord::Migration[5.0]
 
       t.datetime :created_at, null: false
       t.datetime :updated_at, null: false
-      t.datetime :deleted_at, null: false
+      t.datetime :deleted_at
     end
   end
 end

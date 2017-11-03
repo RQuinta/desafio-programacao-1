@@ -1,14 +1,13 @@
 class SellsFileParser
 
   def initialize(path)
-    @file = File.open(path, 'r')
+    @file = path
     @lines = @file.readlines
-    @sells = []
   end
 
   def parse
     uuid = SecureRandom.uuid
-    @lines.shift!
+    @lines.shift
     @lines.map { |l|
       parsed_line = parse_line(l)
       parsed_line.uuid =  uuid
@@ -28,11 +27,10 @@ class SellsFileParser
     merchant_address = attrs[4]
     merchant_name = attrs[5]
 
-    sell_item = SellItem.new(purchase_count: purchase_count)
-
-    sell_item.purchaser = Purchaser.find_or_create_by(name: purchase_name)
-    sell_item.item = Product.find_or_create_by(description: sell.item_description, price: sell.item_price)
-    sell_item.merchant = Merchant.find_or_create_by(name: sell.merchant_name, address: sell.merchant_address)
+    purchaser = Purchaser.find_or_create_by(name: purchase_name)
+    item = Item.find_or_create_by(description: item_description, price: item_price)
+    merchant = Merchant.find_or_create_by(name: merchant_name, address: merchant_address)
+    sell_item = Sell.new(purchaser: purchaser, item: item, merchant: merchant, count: purchase_count)
 
     sell_item
   end

@@ -1,3 +1,4 @@
+require 'pry-byebug'
 module Challenge
   module V1
     module Endpoints
@@ -7,11 +8,12 @@ module Challenge
 
           desc 'Parse sells tab file'
           params do
-            optional :file, type: File, desc: 'tab file'
+            requires :file, type: File, desc: 'tab file'
           end
           post 'mass_edit' do
-            binding.pry
-            file_parser = SellsFileParser.new(params[:file])
+            file = params[:file]
+            temp_file = file[:tempfile]
+            file_parser = SellsFileParser.new(temp_file)
             sells = file_parser.parse
             present(sells, with: Challenge::V1::Entities::Sell)
           end
