@@ -1,5 +1,17 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div>
+  <input type='checkbox' id='form-switch'>
+  <form id='login-form'>
+    <input type="text" placeholder="Nome" ng-model="user.name" required>
+    <input type="text" placeholder="Username" ng-model="user.username" required>
+    <input type="password" placeholder="Senha" ng-model="user.password" required>
+    <button type='submit' ng-click="login()">Login</button>
+    <label for='form-switch'><span>Registrar</span></label>
+  </form>
+  <form id='register-form'>
+    <input type="text" placeholder="Nome" ng-model="user.name" required>
+    <input type="text" placeholder="Username" ng-model="user.username" required>
+    <input type="password" placeholder="Senha" ng-model="user.password" required>
+    <button type='submit' ng-click="createUser()">Registrar</button>
+    <label for='form-switch'>Logar</label>
+  </form>
+</div>

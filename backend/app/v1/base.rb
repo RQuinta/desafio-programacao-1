@@ -4,6 +4,7 @@ module Challenge
       version 'v1', using: :path
 
       mount ::Challenge::V1::Endpoints::Sells
+      mount ::Challenge::V1::Endpoints::Users
 
       desc 'Information about current resource owner'
 
@@ -12,6 +13,8 @@ module Challenge
 
         present(current_resource_owner, with: Entities::User)
       end
+
+
     end
   end
 end
