@@ -14,8 +14,14 @@ gem 'dotenv'
 gem 'bcrypt'
 gem 'activerecord'
 gem 'otr-activerecord'
+gem 'grape-swagger'
+gem 'grape-swagger-entity'
 
 gem 'puma'
+
+group :development do
+  gem 'pry-byebug'
+end
 
 group :test do
   gem 'rspec-rails'

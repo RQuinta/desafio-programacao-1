@@ -35,6 +35,10 @@ Dir[File.expand_path('../../app/v1/entities/*.rb', __FILE__)].each do |entity|
   require_relative entity
 end
 
+Dir[File.expand_path('../../app/services/*.rb', __FILE__)].each do |service|
+  require_relative service
+end
+
 # Endpoints
 Dir[File.expand_path('../../app/v1/endpoints/*.rb', __FILE__)].each do |endpoint|
   require_relative endpoint

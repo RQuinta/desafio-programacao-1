@@ -1,3 +1,4 @@
+require 'grape-swagger'
 module Challenge
   class API < ::Grape::API
     format :json
@@ -12,5 +13,6 @@ module Challenge
     end
 
     mount ::Challenge::V1::Base
+    add_swagger_documentation
   end
 end
