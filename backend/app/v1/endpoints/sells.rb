@@ -6,7 +6,7 @@ module Challenge
 
         namespace :sells do
 
-          desc 'Parse sells tab file'
+          desc 'Create sells from tab file'
           params do
             requires :file, type: File, desc: 'tab file'
           end

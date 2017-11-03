@@ -4,6 +4,7 @@ module Challenge
       class Item < Grape::Entity
         expose :id
         expose :description
+        expose :price
       end
     end
   end

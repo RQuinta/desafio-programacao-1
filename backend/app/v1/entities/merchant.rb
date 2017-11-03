@@ -4,6 +4,7 @@ module Challenge
       class Merchant < Grape::Entity
         expose :id
         expose :name
+        expose :address
       end
     end
   end
