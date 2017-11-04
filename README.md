@@ -12,7 +12,8 @@ Para facilitar a configuração do ambiente criei um docker-compose. A aplicaç�
 1. App_Server - Ruby 2.4 rodando um servidor Puma
 
 Para rodar a aplicação basta executar as seguintes linhas de comando dentro da raiz do projeto:
-`docker-compose up --build && docker-compose `
+`sudo docker-compose up --build && sudo docker exec desafioprogramacao1_app_server_1 rake db:setup
+`
 
 Endpoints API
 
