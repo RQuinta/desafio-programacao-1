@@ -1,3 +1,39 @@
+
+# Estrutura do projeto
+
+O projeto está dividido em uma API REST com suporte a OAuth2 e um frontend AngularJS. 
+
+## Run
+
+Para facilitar a configuração do ambiente criei um docker-compose. A aplicação encontrasse dividida em 3 containers: 
+
+1. Nginx - Servindo os estatiscos e redirecionando todas as requests do subdominio /api para o container da API
+1. Postgres - Banco rodando na porta 5433 
+1. App_Server - Ruby 2.4 rodando um servidor Puma
+
+Para rodar a aplicação basta executar as seguintes linhas de comando dentro da raiz do projeto:
+`docker-compose up --build && docker-compose `
+
+Endpoints API
+
+     POST  |  /api/oauth/authorize(.json)           |      |  OAuth 2.0 Authorization Endpoint        
+     POST  |  /api/oauth/token(.json)               |      |  OAuth 2.0 Token Endpoint                
+     POST  |  /api/oauth/revoke(.json)              |      |  OAuth 2.0 Token Revocation              
+      GET  |  /api/swagger_doc(.:format)            |      |                                          
+      GET  |  /api/swagger_doc/:name(.:format)      |      |                                          
+      GET  |  /api(.json)                           |      |  Root action                             
+     POST  |  /api/:version/sells/mass_edit(.json)  |  v1  |  Create sells from tab file              
+     POST  |  /api/:version/users(.json)            |  v1  |  Create user                             
+      GET  |  /api/:version/me(.json)               |  v1  |  Information about current resource owner
+      
+# Stack backend
+**Grape, Grape::OAuth2, Grape::Entity, ActiveRecord 5, Puma, PostgreSQL, Dotenv, Rack::Cors, Rubocop, RSpec**.
+
+# Stack frontend 
+**Angular, Angular-Route, Angular-Oauth2** 
+ 
+--------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
 # Desafio de programação 1
 A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
 
