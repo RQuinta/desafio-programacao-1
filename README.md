@@ -26,11 +26,9 @@ Endpoints API
      POST  |  /api/:version/users(.json)            |  v1  |  Create user                             
       GET  |  /api/:version/me(.json)               |  v1  |  Information about current resource owner
       
-# Stack backend
-**Grape, Grape::OAuth2, Grape::Entity, ActiveRecord 5, Puma, PostgreSQL, Dotenv, Rack::Cors, Rubocop, RSpec**.
+Stack backend: **Grape, Grape::OAuth2, Grape::Entity, ActiveRecord 5, Puma, PostgreSQL, Dotenv, Rack::Cors, Rubocop, RSpec**.
 
-# Stack frontend 
-**Angular, Angular-Route, Angular-Oauth2** 
+Stack frontend:  **Angular, Angular-Route, Angular-Oauth2** 
  
 --------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
