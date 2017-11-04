@@ -1,9 +1,9 @@
 
 # Estrutura do projeto
 
-O projeto está dividido em uma API REST com suporte a OAuth2 e um frontend AngularJS. 
+O projeto está dividido em uma API REST versionada com suporte a OAuth2 e um frontend AngularJS. 
 
-## Run
+## Instalação
 
 Para facilitar a configuração do ambiente criei um docker-compose. A aplicação encontrasse dividida em 3 containers: 
 
