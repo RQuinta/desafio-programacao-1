@@ -20,7 +20,7 @@ angular.module('myApp.view2', ['ngRoute'])
 
   $scope.createUser = function(){
     $http({
-      url: 'http://0.0.0.0:9292/api/v1/users',
+      url: '/api/v1/users',
       method: 'POST',
       data: $scope.user,
     }).then(function(result){

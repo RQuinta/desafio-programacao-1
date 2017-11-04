@@ -13,7 +13,7 @@ angular.module('myApp.view1', ['ngRoute'])
 
   $scope.uploadFile = function(){
     var file = $scope.myFile;
-    var uploadUrl = "http://0.0.0.0:9292/api/v1/sells/mass_edit";
+    var uploadUrl = "/api/v1/sells/mass_edit";
     var promise = fileUpload.uploadFileToUrl(file, uploadUrl);
     promise.success(function(data){
       $scope.sells = data;

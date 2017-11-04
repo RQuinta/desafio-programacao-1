@@ -1,6 +1,7 @@
-RUN mkdir /app
-WORKDIR /app
-ADD . /app
+FROM kyma/docker-nginx
 
-RUN npm install -g http-server
-CMD [ "http-server -p 80" ]
+COPY nginx.conf /etc/nginx/sites-enabled/default
+
+COPY app/ /var/www/example.com/current/static/
+
+CMD 'nginx'

@@ -16,7 +16,7 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
 
 app.config(['OAuthProvider', function(OAuthProvider) {
   OAuthProvider.configure({
-    baseUrl: 'http://localhost:9292/api/',
+    baseUrl: '/api/',
     clientId: 'sadfsdfasfsfasdfasfasdf',
     grantPath: '/oauth/token',
     revokePath: '/oauth/revoke'
