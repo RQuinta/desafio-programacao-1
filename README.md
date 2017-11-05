@@ -11,8 +11,12 @@ Para facilitar a configuração do ambiente criei um docker-compose. A aplicaç�
 1. Postgres - Banco rodando na porta 5433 
 1. App_Server - Ruby 2.4 rodando um servidor Puma
 
-Para rodar a aplicação basta executar as seguintes linhas de comando dentro da raiz do projeto:
-`sudo docker-compose up --build && sudo docker exec desafioprogramacao1_app_server_1 rake db:setup
+Para rodar a aplicação basta executar as seguintes linhas de comando dentro da raiz do projeto e a aplicação estará disponível em localhost:80 :
+
+1.`sudo docker-compose up --build 
+1. sudo docker exec desafioprogramacao1_app_server_1 rake db:create
+1. sudo docker exec desafioprogramacao1_app_server_1 rake db:migrate
+1. sudo docker exec desafioprogramacao1_app_server_1 rake db:seed
 `
 
 Endpoints API
