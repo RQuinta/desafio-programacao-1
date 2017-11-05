@@ -1,7 +1,7 @@
 <div>
   <div>
     <input type="file" file-model="myFile"/>
-    <button ng-click="uploadFile()">upload me</button>
+    <button ng-if="myFile" ng-click="uploadFile()">upload me</button>
   </div>
   <div ng-if="sells.length">
     <table>

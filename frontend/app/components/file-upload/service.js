@@ -11,7 +11,7 @@ angular.module('myApp').service('fileUpload', ['$http', function ($http) {
       url: uploadUrl,
       method: 'POST',
       data: fd,
-      headers: { 'Content-Type': undefined},
+      headers: { 'Content-Type': undefined, 'charset': 'UTF-8'},
       transformRequest: angular.identity
     });
   }

@@ -3,9 +3,7 @@ module Challenge
   module V1
     module Endpoints
       class Users < Grape::API
-
         namespace :users do
-
           desc 'Create user'
           params do
             requires :name, type: String, desc: 'name'
@@ -16,9 +14,7 @@ module Challenge
             user = User.create params
             present(user, with: Challenge::V1::Entities::User)
           end
-
         end
-
       end
     end
   end

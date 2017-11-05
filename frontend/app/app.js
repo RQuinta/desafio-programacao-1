@@ -22,3 +22,19 @@ app.config(['OAuthProvider', function(OAuthProvider) {
     revokePath: '/oauth/revoke'
   });
 }]);
+
+app.run(['$rootScope', '$window', 'OAuth', function($rootScope, $window, OAuth) {
+  $rootScope.$on('oauth:error', function(event, rejection) {
+
+    if ('invalid_token' === rejection.data.error) {
+      return OAuth.getRefreshToken();
+    }
+
+  });
+}]);
+
+app.run(['$location', 'OAuth', function($location, OAuth) {
+  if (OAuth.isAuthenticated()) {
+    $location.url('/upload_planilha');
+  }
+}]);

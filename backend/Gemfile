@@ -5,14 +5,14 @@ gem 'bcrypt'
 gem 'dotenv'
 gem 'grape'
 gem 'grape-entity'
-gem 'grape_oauth2', git: 'https://github.com/nbulaj/grape_oauth2.git'
 gem 'grape-swagger'
 gem 'grape-swagger-entity'
+gem 'grape_oauth2', git: 'https://github.com/nbulaj/grape_oauth2.git'
+gem 'otr-activerecord'
 gem 'pg'
 gem 'puma'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rake'
-gem 'otr-activerecord'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development do

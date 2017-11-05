@@ -6,12 +6,8 @@ module MassEditable
   end
 
   class_methods do
-    def mass_edit resources
-
-      unless validate_resources resources
-        return false
-      end
-
+    def mass_edit(resources)
+      return false unless validate_resources resources
       transaction do
         create_resources! resources
       end
@@ -19,23 +15,16 @@ module MassEditable
 
     protected
 
-    def validate_resources resources
+    def validate_resources(resources)
       @@mass_edit_errors = []
-      resources.each do |resource|
-        unless resource.valid?
-          @@mass_edit_errors << resource.errors.messages
-        end
-      end
-
+      resources.each { |resource| @@mass_edit_errors << resource.errors.messages unless resource.valid? }
       @@mass_edit_errors.empty?
     end
 
-    def create_resources! resources
-
+    def create_resources!(resources)
       resources.each do |resource|
         resource.save || (raise ActiveRecord::Rollback)
       end
     end
-
   end
 end

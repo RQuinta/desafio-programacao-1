@@ -3,7 +3,9 @@ module Challenge
     module Entities
       class Purchaser < Grape::Entity
         expose :id
-        expose :name
+        format_with(:name) do |name|
+          name
+        end
       end
     end
   end
