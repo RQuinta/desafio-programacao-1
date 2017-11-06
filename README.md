@@ -17,6 +17,11 @@ Para rodar a aplicação basta executar as seguintes linhas de comando dentro da
 1. sudo docker exec desafioprogramacao1_app_server_1 rake db:create
 1. sudo docker exec desafioprogramacao1_app_server_1 rake db:migrate
 1. sudo docker exec desafioprogramacao1_app_server_1 rake db:seed
+
+Caso ainda não tenha o docker e o docker-compose instalados basta seguir os links abaixo:
+
+1. https://www.docker.com/community-edition
+1. https://docs.docker.com/compose/install/
 `
 
 Endpoints API

@@ -1,17 +1,8 @@
 <div>
-  <input type='checkbox' id='form-switch'>
-  <form id='login-form'>
-    <input type="text" placeholder="Nome" ng-model="user.name" required>
-    <input type="text" placeholder="Username" ng-model="user.username" required>
-    <input type="password" placeholder="Senha" ng-model="user.password" required>
-    <button type='submit' ng-click="login()">Login</button>
-    <label for='form-switch'><span>Registrar</span></label>
-  </form>
-  <form id='register-form'>
+  <form>
     <input type="text" placeholder="Nome" ng-model="user.name" required>
     <input type="text" placeholder="Username" ng-model="user.username" required>
     <input type="password" placeholder="Senha" ng-model="user.password" required>
     <button type='submit' ng-click="createUser()">Registrar</button>
-    <label for='form-switch'>Logar</label>
   </form>
 </div>

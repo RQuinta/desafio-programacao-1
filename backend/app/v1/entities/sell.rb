@@ -1,4 +1,3 @@
-require 'pry-byebug'
 module Challenge
   module V1
     module Entities

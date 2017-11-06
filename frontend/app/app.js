@@ -16,6 +16,10 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
 
 app.config(['OAuthProvider', function(OAuthProvider) {
   OAuthProvider.configure({
+    name: 'token',
+    options: {
+      secure: true
+    },
     baseUrl: '/api/',
     clientId: 'sadfsdfasfsfasdfasfasdf',
     grantPath: '/oauth/token',
@@ -33,7 +37,7 @@ app.run(['$rootScope', '$window', 'OAuth', function($rootScope, $window, OAuth) 
   });
 }]);
 
-app.run(['$location', 'OAuth', function($location, OAuth) {
+app.run(['$location', 'OAuth','$cookies', function($location, OAuth, $cookies) {
   if (OAuth.isAuthenticated()) {
     $location.url('/upload_planilha');
   }
